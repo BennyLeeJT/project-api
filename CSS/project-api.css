@@ -3,4 +3,39 @@
 /*    background-color: orange;*/
 /*}*/
 
+#logo 
+{
+    width: auto;
+    height: 100px;
+}
 
+.top-div
+{
+    padding: 0px;
+}
+
+.search-box 
+{
+    padding-top: 0.5rem;
+    margin-bottom: 0.25em !important;
+}
+
+/*GOOGLE MAP API STEP 7 - need to style in order for map to appear in the div id=map*/
+#map 
+{
+    border-style: groove;
+    /*height: 15rem;*/
+    height: 290px;
+    padding: 0px;
+}
+
+.row
+{
+    margin: 0.25em;
+}
+
+/*.container*/
+/*{*/
+    /*margin: 0px;*/
+    /*padding:;*/
+/*}*/

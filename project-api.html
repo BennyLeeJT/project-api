@@ -11,39 +11,96 @@
 
   <link rel="stylesheet" href="CSS/project-api.css" />
 
-  <title>Hello, world!</title>
+  <title>Belly Rumbling?</title>
 </head>
 
 <body>
-  <div class="container-fluid">
+  <div class="container-fluid top-div">
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Navbar</a>
+
+      <a class="navbar-brand" href="project-api.html">
+        <img id="logo" src="CSS/images/BELLY-RUMBLE3b.png" alt="Belly Rumble">
+      </a>
+
+
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+      <span class="navbar-toggler-icon"></span>
+      </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
+
           <li class="nav-item active">
-            <a class="nav-link" href="#">Restaurants <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
           </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#">Restaurants </a>
+          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="#">Hawker Centres </a>
           </li>
+
           <li class="nav-item">
-            <a class="nav-link" href="#">From the Neighbourhood</a>
+            <a class="nav-link" href="#">From the Neighbourhood </a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search for food, beverage, company name, locations..." aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
+
     </nav>
 
-
+    <!--from <div class="container-fluid">-->
   </div>
+
+
+  <!--TEST SEARCH INPUT BOX HERE-->
+
+  <div class="container-fluid search-box">
+    General Search
+
+    <form class="form-inline my-2 my-lg-0" action="#" onsubmit="showAddress(this.address.value); return false">
+      <!--<div class="row">-->
+      <!--  <div class="col-md-6">-->
+          <label for="address"></label>
+          <input id="address" class="form-control mr-sm-2 col-sm" type="text" placeholder="Search for food, place, company..." />
+          <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+          <p id="error-msg"></p>
+          
+        <!--</div>-->
+        <!--<div class="col-md-6 the-map">-->
+        <!--  <iframe id="map-canvas" src="" allowfullscreen></iframe>-->
+        <!--</div>-->
+
+      <!--</div>-->
+    </form>
+  </div>
+  <!--END OF TEST SEARCH INPUT BOX HERE-->
+
+  <!--ORIGINAL SEARCH INPUT BOX-->
+<!--  <div class="container-fluid search-box">
+    General Search
+
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2 col-sm" type="text" placeholder="Search for food, place, company..." aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>-->
+  <!--ORIGINAL SEARCH INPUT BOX-->
+
+  <!--from <div class="container-fluid search-box">-->
+  </div>
+
+
+  <div class="container-fluid">
+    <!--GOOGLE MAP API STEP 6 - map id spotted in step 4, creating element with such id in html-->
+    <iframe id="map" src="" class="container-fluid">
+
+    </iframe>
+  </div>
+
+
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -55,6 +112,16 @@
 
   <script type="text/javascript" src="project-api.js"></script>
 
+
+
+
+  <!--GOOGLE MAP API STEP 1 - add google map API-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places&callback=initMap" async defer></script>
+
+
+  <footer>
+
+  </footer>
 </body>
 
 </html>

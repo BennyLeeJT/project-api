@@ -1,0 +1,15 @@
+
+<form action="#" onsubmit="showAddress(this.address.value); return false">
+    <div class="row">
+        <div class="col-md-6">
+            <label for="address">Address</label>
+            <input id="address" type="text" placeholder="Enter an address"  />
+            <button type="button" id="submit">Locate!</button>
+          <p id="error-msg"></p>
+        </div>
+        <div class="col-md-6 the-map">
+          <iframe id="map-canvas" src="" allowfullscreen></iframe>
+        </div>
+
+    </div>
+</form>
