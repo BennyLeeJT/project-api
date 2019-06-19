@@ -3,6 +3,12 @@
 /*    background-color: orange;*/
 /*}*/
 
+#map 
+{
+    min-height: 360px;
+    height: 360px;
+}
+
 #logo 
 {
     width: auto;
@@ -21,13 +27,13 @@
 }
 
 /*GOOGLE MAP API STEP 7 - need to style in order for map to appear in the div id=map*/
-#map 
-{
-    border-style: groove;
+/*#map */
+/*{*/
+/*    border-style: groove;*/
     /*height: 15rem;*/
-    height: 290px;
-    padding: 0px;
-}
+/*    height: 290px;*/
+/*    padding: 0px;*/
+/*}*/
 
 .row
 {

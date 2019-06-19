@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <!--my own css linked-->
+  <link rel="stylesheet" href="CSS/project-api.css" />
+
+  <title>Belly Rumbling?</title>
+</head>
+
+<body>
+  <!--<div class="container-fluid top-div">-->
+
+  <!--  <nav class="navbar navbar-expand-lg navbar-light bg-light">-->
+
+  <!--    <a class="navbar-brand" href="project-api.html">-->
+  <!--      <img id="logo" src="CSS/images/BELLY-RUMBLE3b.png" alt="Belly Rumble">-->
+  <!--    </a>-->
+
+
+  <!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+  <!--    <span class="navbar-toggler-icon"></span>-->
+  <!--    </button>-->
+
+  <!--    <div class="collapse navbar-collapse" id="navbarSupportedContent">-->
+  <!--      <ul class="navbar-nav mr-auto">-->
+
+  <!--        <li class="nav-item active">-->
+  <!--          <a class="nav-link" href="project-api.html">Home</a>-->
+  <!--        </li>-->
+          
+  <!--        <li class="nav-item">-->
+  <!--          <a class="nav-link" href="restaurants.html">Restaurants <span class="sr-only">(current)</span></a>-->
+  <!--        </li>-->
+
+  <!--        <li class="nav-item">-->
+  <!--          <a class="nav-link" href="#">Hawker Centres </a>-->
+  <!--        </li>-->
+
+  <!--        <li class="nav-item">-->
+  <!--          <a class="nav-link" href="#">From the Neighbourhood </a>-->
+  <!--        </li>-->
+  <!--      </ul>-->
+  <!--    </div>-->
+
+  <!--  </nav>-->
+
+    <!--from <div class="container-fluid">-->
+  <!--</div>-->
+
+
+  <!--TEST SEARCH INPUT BOX HERE-->
+
+  <!--<div class="container-fluid search-box">-->
+  <!--  General Search-->
+
+  <!--  <form class="form-inline my-2 my-lg-0" action="#" onsubmit="showAddress(this.address.value); return false">-->
+      <!--<div class="row">-->
+      <!--  <div class="col-md-6">-->
+  <!--        <label for="address"></label>-->
+  <!--        <input id="address" class="form-control mr-sm-2 col-sm" type="text" placeholder="Search for food, place, company..." />-->
+  <!--        <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>-->
+  <!--        <p id="error-msg"></p>-->
+  <!--  </form>-->
+  <!--</div>-->
+
+
+
+<!-- GOOGLE MAP STEP 6: Create a div to hold the google map -->
+<!--------------------------------------------------------------------------------------------------->
+    <div id="map"></div>
+<!--------------------------------------------------------------------------------------------------->
+
+
+
+<!--simple map with marker and popup, hard coded-->
+ <script>
+ 
+ 
+function initMap() {
+  var myLatLng = {lat: -25.363, lng: 131.044};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    title: 'Hello World!'
+  });
+}
+
+
+
+
+
+
+// var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
+// var mapOptions = {
+//   zoom: 4,
+//   center: myLatlng
+// }
+// var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+// var marker = new google.maps.Marker({
+//     position: myLatlng,
+//     title:"Hello World!"
+// });
+
+// // To add the marker to the map, call setMap();
+// marker.setMap(map);
+
+
+
+
+
+
+
+
+// In the following example, markers appear when the user clicks on the map.
+// Each marker is labeled with a single alphabetical character.
+var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+var labelIndex = 0;
+
+function initialize() {
+  var bangalore = { lat: 12.97, lng: 77.59 };
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 12,
+    center: bangalore
+  });
+
+  // This event listener calls addMarker() when the map is clicked.
+  google.maps.event.addListener(map, 'click', function(event) {
+    addMarker(event.latLng, map);
+  });
+
+  // Add a marker at the center of the map.
+  addMarker(bangalore, map);
+}
+
+// Adds a marker to the map.
+function addMarker(location, map) {
+  // Add the marker at the clicked location, and add the next-available label
+  // from the array of alphabetical characters.
+  var marker = new google.maps.Marker({
+    position: location,
+    label: labels[labelIndex++ % labels.length],
+    map: map
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+
+
+
+
+
+        </script>
+
+
+
+
+  <footer>
+
+  </footer>
+  
+  
+  
+  
+  
+   <!--  Optional JavaScript -->
+   <!--jQuery first, then Popper.js, then Bootstrap JS -->
+  <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>-->
+  <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>-->
+
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>-->
+
+  <!--<script type="text/javascript" src="project-api.js"></script>-->
+  
+  
+  
+  
+  <!--GOOGLE MAP API STEP 1 - add google map API-->
+  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+  <!--<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&callback=initMap"></script>-->
+  <!--<script type="text/javascript" src="assets/js/maps.js"></script>-->
+  
+  
+  <!--for callback initMap-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&callback=initMap" type="text/javascript"></script>
+  
+  <!--for using Places Library-->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places"></script>
+  
+</body>
+
+</html>

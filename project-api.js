@@ -11,7 +11,7 @@ let infoWindow = null;
 let linkKey = "https://www.google.com/maps/embed/v1/search?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw";
 let zoom = 12;
 let q = null;
-let defaultLoc = "New York, NY";
+let defaultLoc = "Singapore, SG";
 
 
 // GOOGLE MAP API STEP 5 - map id spotted in step 4 without declaration
@@ -27,11 +27,11 @@ let service = null;
 function initMap()
 {
  // GOOGLE MAP API STEP 3 - create varaible to store coordinates
-  // let variableLocation = new google.maps.LatLng(1.3521, 103.8198);
+   let variableLocation = new google.maps.LatLng(1.3521, 103.8198);
  
  // GOOGLE MAP API STEP 4 - create the map itself
-  // map = new google.maps.Map(
-  // document.getElementById('map'), {center: variableLocation, zoom: 12});
+   map = new google.maps.Map(
+   document.getElementById('map'), {center: variableLocation, zoom: 12});
 
 
 // for displaying user location saying location found if user deveice enable google to track location
@@ -148,8 +148,25 @@ $(function () {
         }
         srcContent = linkKey + "&q=" + q + "&zoom=" + zoom;
         if (e.which === 13 || e.type === 'click') {
-            $("#map").attr("src", srcContent);
+            $("#map-canvas").attr("src", srcContent);
         }
-        gestureHandling: "greedy";
     });
 });
+
+
+// previously have gestureHandling: greedy
+// $(function () {
+//     $('#submit').on('keypress click', function (e) {
+//         if ($('#address').val().length === 0) {
+//             q = defaultLoc;
+//         }
+//         else {
+//             q = $('#address').val();
+//         }
+//         srcContent = linkKey + "&q=" + q + "&zoom=" + zoom;
+//         if (e.which === 13 || e.type === 'click') {
+//             $("#map").attr("src", srcContent);
+//         }
+//         gestureHandling: "greedy";
+//     });
+// });
