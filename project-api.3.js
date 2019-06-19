@@ -1,8 +1,12 @@
 /* global $ */
 
-var map;
-var markers = [];
+let map;
 let infoWindow;
+let request;
+let service;
+let markers = [];
+
+
 
 // start out with filter features set to false, so no filtering happens by default
 var filters = { shower: false, vault: false, flush: false }
@@ -97,14 +101,14 @@ function initMap()
             zoom: 10,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             center: center,
-    };
+        };
     
-    let request = 
-    {
-        location : center,
-        radius: 5000,
-        types: ["cafe"]
-    };
+        request = 
+        {
+            location : center,
+            radius: 5000,
+            types: ["cafe"]
+        };
     
     map_document = document.getElementById('map');
     
@@ -113,10 +117,32 @@ function initMap()
     // loadMarkers();
     
     infoWindow = new google.maps.InfoWindow();
-    let service = new google.maps.places.PlacesService(map);
+    service = new google.maps.places.PlacesService(map);
     
     service.nearbySearch(request, callback);
-}
+    
+    
+    
+    
+    // another listener for event right click
+    google.maps.event.addListener(map, "rightclick", function(event)
+    {
+        map.setCenter(event.latLng);
+        clearResults(markers);
+        
+        let request = 
+        {
+            location : event.latLng,
+            radius: 5000,
+            types: ["cafe"]
+        };
+        
+        service.nearbySearch(request, callback);
+    });
+    
+    
+    
+    }
 
 function callback(results, status)
 {
@@ -124,8 +150,12 @@ function callback(results, status)
      {
        for (let i = 0; i < results.length; i++)
        {
-         createMarker(results[i]);
-         console.log(results[i]);
+         
+         markers.push(createMarker(results[i]));
+         
+        //  initial just to fill in markers of nearby search of cafes as map loads
+        //  createMarker(results[i]);
+        //  console.log(results[i]);
        }
 
     //   map.setCenter(results[0].geometry.location);
@@ -140,13 +170,27 @@ function createMarker(place)
         {
             map: map,
             position: place.geometry.location
-    });
+        });
    
     google.maps.event.addListener(marker, 'click', function() 
     {
            infoWindow.setContent(place.name);
            infoWindow.open(map, this);
     });
+    
+    
+    // when need to use the right click event, we need to return the marker
+    return marker;
+}
+
+// now to clear markers when we do each right click, we need this function
+function clearResults(markers)
+{
+    for (let i in markers)
+    {
+        markers[i].setMap(null);
+    }
+    markers = [];
 }
  
 google.maps.event.addDomListener(window, 'load', initMap);

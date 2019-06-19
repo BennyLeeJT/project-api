@@ -4,13 +4,24 @@
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
   <link rel="stylesheet" href="CSS/project-api.css" />
+  
+  <!--load jquery first, else console mention $ not define-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
 
+  <!--load the map with own API key, below serve the same purpose but with callback initMap-->
+  <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places"></script>-->
+  
+  <!--GOOGLE MAP API STEP 1 - add google map API-->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places&callback=initMap" async defer></script>
+  
+  
   <title>Belly Rumbling?</title>
 </head>
 
@@ -55,8 +66,7 @@
   </div>
 
 
-  <!--TEST SEARCH INPUT BOX HERE-->
-
+  <!--CURRENT SEARCH INPUT BOX HERE-->
   <div class="container-fluid search-box">
     General Search
 
@@ -65,79 +75,18 @@
       <!--  <div class="col-md-6">-->
           <label for="address"></label>
           <input id="address" class="form-control mr-sm-2 col-sm" type="text" placeholder="Search for food, place, company..." />
-          <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="button">Search</button>
+          <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
           <p id="error-msg"></p>
           
         <!--</div>-->
         <!--<div class="col-md-6 the-map">-->
-        <!--  <iframe id="map-canvas" src="" allowfullscreen></iframe>-->
+        <!--  <iframe id="maps" src="" allowfullscreen></iframe>-->
         <!--</div>-->
 
       <!--</div>-->
     </form>
   </div>
-  <!--END OF TEST SEARCH INPUT BOX HERE-->
-
-
-<div id="find_food_places">
-      Find hotels in:
-    </div>
-
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter a city" type="text" />
-    </div>
-
-    <div id="selection_div">
-      <select id="places_id">
-        <option value="au">Restaurants</option>
-        <option value="br">Hawker</option>
-      </select>
-    </div>
-
-    <div id="listing">
-      <table id="results_Table">
-        <tbody id="results"></tbody>
-      </table>
-    </div>
-
-    <div style="display: none">
-      <div id="info_content">
-        <table>
-          <tr id="iw-url-row" class="iw_table_row">
-            <td id="iw-icon" class="iw_table_icon"></td>
-            <td id="iw-url"></td>
-          </tr>
-          <tr id="iw-address-row" class="iw_table_row">
-            <td class="iw_attribute_name">Address:</td>
-            <td id="iw-address"></td>
-          </tr>
-          <tr id="iw-phone-row" class="iw_table_row">
-            <td class="iw_attribute_name">Telephone:</td>
-            <td id="iw-phone"></td>
-          </tr>
-          <tr id="iw-rating-row" class="iw_table_row">
-            <td class="iw_attribute_name">Rating:</td>
-            <td id="iw-rating"></td>
-          </tr>
-          <tr id="iw-website-row" class="iw_table_row">
-            <td class="iw_attribute_name">Website:</td>
-            <td id="iw-website"></td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    
-
-
-
-
-
-
-
-
-
-
-
+  <!--END OF CURRENT SEARCH INPUT BOX HERE-->
 
   <!--ORIGINAL SEARCH INPUT BOX-->
 <!--  <div class="container-fluid search-box">
@@ -151,7 +100,7 @@
   <!--ORIGINAL SEARCH INPUT BOX-->
 
   <!--from <div class="container-fluid search-box">-->
-  </div>
+  <!--</div>-->
 
 
   <div class="container-fluid">
@@ -173,8 +122,7 @@
 
 
 
-  <!--GOOGLE MAP API STEP 1 - add google map API-->
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places&callback=initMap" async defer></script>
+  
 
   <script type="text/javascript" src="project-api.js"></script>
   
