@@ -1,7 +1,8 @@
 /* global $ */
 
-var map
-var markers = []
+var map;
+var markers = [];
+let infoWindow;
 
 // start out with filter features set to false, so no filtering happens by default
 var filters = { shower: false, vault: false, flush: false }
@@ -79,14 +80,15 @@ function loadMarkers() {
 
 
             marker.addListener('click', function() {
-                $('#campground_info').html(markerInfo)
+                $('#campground_info').html(markerInfo);
             });
-            markers.push(marker)
+            markers.push(marker);
 
         });
     });
 }
 
+////////////////////////////////////////////////////////////////////
 /* global google */
 function initMap() 
     {
@@ -108,9 +110,10 @@ function initMap()
     
     map = new google.maps.Map(map_document, map_options);
     
-    loadMarkers()
+    // loadMarkers();
     
-    let service = new google.maps.places.PlacesService(map)
+    infoWindow = new google.maps.InfoWindow();
+    let service = new google.maps.places.PlacesService(map);
     
     service.nearbySearch(request, callback);
 }
@@ -125,7 +128,7 @@ function callback(results, status)
          console.log(results[i]);
        }
 
-       map.setCenter(results[0].geometry.location);
+    //   map.setCenter(results[0].geometry.location);
      }
 }
 
@@ -138,7 +141,6 @@ function createMarker(place)
             map: map,
             position: place.geometry.location
     });
-   
    
     google.maps.event.addListener(marker, 'click', function() 
     {
