@@ -37,12 +37,12 @@ function initMap()
         center: center,
     };
 
-    request = 
-    {
-        location: center,
-        radius: 50000,
-        types: ["cafe"]
-    };
+    // request = 
+    // {
+    //     location: center,
+    //     radius: 5000,
+    //     types: ["cafe"]
+    // };
 
 
     // let variableLocation = new google.maps.LatLng(1.3521, 103.8198);
@@ -61,6 +61,33 @@ function initMap()
     infoWindow = new google.maps.InfoWindow();
 
 
+
+    // for finding and displaying user location saying location found if user deveice enable google to track location
+    if (navigator.geolocation) 
+    {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            let pos = {
+                lat: position.coords.latitude,
+                lng: position.coords.longitude
+            };
+
+            infoWindow.setPosition(pos);
+            infoWindow.setContent('Current location found');
+            infoWindow.open(map);
+            map.setCenter(pos);
+        }, function() {
+            handleLocationError(true, infoWindow, map.getCenter());
+        });
+    }
+    else 
+    {
+        // Browser doesn't support Geolocation
+        handleLocationError(false, infoWindow, map.getCenter());
+    }
+    
+    
+    
+
     // GOOGLE MAP API STEP 8 - create a variable for request
     // let request = 
     // {
@@ -69,11 +96,32 @@ function initMap()
     // };
 
     // GOOGLE MAP API STEP 9 - create a search service. we see service variable here, so next will have to create the service varaible
-    service = new google.maps.places.PlacesService(map);
+    // service = new google.maps.places.PlacesService(map);
+
+
 
 
     service.nearbySearch(request, callback);
     
+    
+    // another listener for event right click
+    google.maps.event.addListener(map, "rightclick", function(event)
+    {
+        map.setCenter(event.latLng);
+        clearResults(markers);
+        
+        let request = 
+        {
+            location : event.latLng,
+            radius: 5000,
+            types: ["restaurant"]
+        };
+        
+        // service.nearbySearch(request, callback);
+    });
+        
+        
+        
     // GOOGLE MAP API STEP 11 - these are google default terms and names, to copy paste and use them. we see createMarker function here. next will have to create this function, outside of the initMap function
     service.findPlaceFromQuery(request, function(results, status)
     {
@@ -89,26 +137,53 @@ function initMap()
       }
     });
 
-    // GOOGLE MAP API STEP 12 - create the function and marker variable
-    function createMarker(place)
+
+}
+
+
+
+
+function callback(results, status)
+{
+    if (status === google.maps.places.PlacesServiceStatus.OK)
+     {
+       for (let i = 0; i < results.length; i++)
+       {
+         
+         markers.push(createMarker(results[i]));
+         
+        //  initial just to fill in markers of nearby search of cafes as map loads
+        //  createMarker(results[i]);
+        //  console.log(results[i]);
+       }
+
+    //   map.setCenter(results[0].geometry.location);
+     }
+}
+
+
+
+
+// GOOGLE MAP API STEP 12 - create the function and marker variable
+function createMarker(place)
+{
+    // let placeLoc = place.geometry.location;
+    let marker = new google.maps.Marker(
     {
-        // let placeLoc = place.geometry.location;
-        let marker = new google.maps.Marker(
-        {
-            map: map,
-            position: place.geometry.location
-        });
-        
-        google.maps.event.addListener(marker, 'click', function() 
-        {
-            infoWindow.setContent(place.name);
-            infoWindow.open(map, this);
-        });
-        
-        // when need to use the right click event, we need to return the marker
-        return marker;
+        map: map,
+        position: place.geometry.location
+    });
     
-    }
+    google.maps.event.addListener(marker, 'click', function() 
+    {
+        infoWindow.setContent(place.name);
+        infoWindow.open(map, this);
+    });
+    
+    // when need to use the right click event, we need to return the marker
+    return marker;
+
+}
     
     // now to clear markers when we do each right click, we need this function
 function clearResults(markers)
@@ -121,32 +196,12 @@ function clearResults(markers)
 }
 
 
-    // for finding and displaying user location saying location found if user deveice enable google to track location
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-            let pos = {
-                lat: position.coords.latitude,
-                lng: position.coords.longitude
-            };
-
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Current location found');
-            infoWindow.open(map);
-            map.setCenter(pos);
-        }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-        });
-    }
-    else {
-        // Browser doesn't support Geolocation
-        handleLocationError(false, infoWindow, map.getCenter());
-    }
 
 
 
 
 
-}
+
 
 
 
@@ -196,3 +251,23 @@ $(function() {
         gestureHandling: "greedy";
     });
 });
+
+
+
+google.maps.event.addDomListener(window, 'load', initMap);
+
+
+
+// function change_div() {
+//     if (document.getElementByClass("map_class_div")) 
+//     {
+//         document.getElementByClass("map_class_div").id = "map";
+//         document.getElementByClass("map_class_id").id = "";
+//     } 
+    
+//     else 
+//     {
+//         document.getElementByClass("map_class_id").id = "map";
+//         document.getElementByClass("map_class_div").id = "";
+//     }
+// }

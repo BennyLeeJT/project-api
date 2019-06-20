@@ -10,7 +10,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="CSS/project-api.css" />
+  <link rel="stylesheet" href="project-api.css" />
   
   <!--load jquery first, else console mention $ not define-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -31,7 +31,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
       <a class="navbar-brand" href="project-api.html">
-        <img id="logo" src="CSS/images/BELLY-RUMBLE3b.png" alt="Belly Rumble">
+        <img id="logo" src="../assets/CSS/images/BELLY-RUMBLE3b.png" alt="Belly Rumble">
       </a>
 
 
@@ -65,7 +65,7 @@
     <!--from <div class="container-fluid">-->
   </div>
 
-
+<h1>THE SEARCH ONLY WORKS DUE TO MAP GENERATED IN EMBEDDED IFRAME, NOT DIV. IFRAME can take src to do url search but not div, hence this is shelved</h1>
   <!--CURRENT SEARCH INPUT BOX HERE-->
   <div class="container-fluid search-box">
     General Search
@@ -85,6 +85,29 @@
 
       <!--</div>-->
     </form>
+    
+    <p></p>
+    
+    <div id="buttons">
+
+        <input type="checkbox" name="filter" id="shower" class='chk-btn'>
+        <label for='shower'>Restaurants</label>
+
+        <input type="checkbox" name="filter" id="flush" class='chk-btn'>
+        <label for='flush'>Cafes</label>
+
+        <input type="checkbox" name="filter" id="vault" class='chk-btn'>
+        <label for='vault'>Meal Delivery</label>
+        
+        <input type="checkbox" name="filter" id="vault" class='chk-btn'>
+        <label for='vault'>Meal Takeaway</label>
+        
+        <br>
+    </div>
+    
+    <!--<button onclick = "change_div()" >Click to toggle Text Search and Right Click Nearby Search</button>-->
+    
+    
   </div>
   <!--END OF CURRENT SEARCH INPUT BOX HERE-->
 
@@ -103,7 +126,7 @@
   <!--</div>-->
 
 
-  <div class="container-fluid">
+  <div id="" class="container-fluid">    <!-- id="map" -->
     <!--GOOGLE MAP API STEP 6 - map id spotted in step 4, creating element with such id in html-->
     <iframe id="map" src="" class="container-fluid">
 

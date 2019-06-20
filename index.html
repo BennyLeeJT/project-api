@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="assets/CSS/style.css" />
+
+    <title>Belly Rumbling?</title>
+</head>
+
+<body>
+    <div class="container-fluid top-div">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+            <a class="navbar-brand" href="temp.3.html">
+        <img id="logo" src="assets/CSS/images/BELLY-RUMBLE3b.png" alt="Belly Rumble">
+      </a>
+
+        </nav>
+
+    <!--from <div class="container-fluid top-div">-->
+    </div>
+
+
+
+
+    <!--CURRENT SEARCH INPUT BOX HERE-->
+    <div class="container-fluid search-box">
+        <h2>BE HUNGRY NO MORE</h2>
+        General Search
+
+        <form class="form-inline my-2 my-lg-0" action="#" onsubmit="showAddress(this.address.value); return false">
+            <!--<div class="row">-->
+            <!--  <div class="col-md-6">-->
+            <label for="address"></label>
+            <input id="address" class="form-control mr-sm-2 col-sm" type="text" placeholder="Search for food, place, company..." />
+            <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            <p id="error-msg"></p>
+
+            <!--</div>-->
+            <!--<div class="col-md-6 the-map">-->
+            <!--  <iframe id="maps" src="" allowfullscreen></iframe> can't use iframe for other map functions, must be div-->
+            <!--</div>-->
+
+            <!--</div>-->
+        </form>
+
+        <p></p>
+
+
+        <div>
+            <div>
+                <div id="buttons_div_id" class="container">
+                    <div class="p_in_div container"> <strong> First, please select a category to filter </strong>
+                    </div>
+                    <a class='btn btn-success' id='button5'><span class="btn_label">Restaurants</span></a>
+                    <a class='btn btn-success' id='button4'><span class="btn_label">Cafes</span></a>
+                    <a class='btn btn-success' id='button2'><span class="btn_label">Meal Deliveries</span></a>
+                    <a class='btn btn-success' id='button3'><span class="btn_label">Meal Takeaways</span></a>
+                    <a class='btn btn-success' id='button6'><span class="btn_label">Shopping Malls</span></a>
+                    <a class='btn btn-success' id='button1'><span class="btn_label">Supermarkets</span></a>
+                </div>
+                
+                <p></p>
+                
+                <div id="note_div" class="container">Then <strong>Right Click</strong> at a location on the map to see its nearby results, up to 5 km of its surrounding and up to 20 results
+                    
+                    <p></p>
+                    
+                    Click on the markers to see more details of each establishment
+                </div>
+
+
+                <div id="display_filter_selection_id" class="container"></div>
+
+
+                <!--can't use two call backs, the latter one will overwrite the former function-->
+                <!--<input id="pac-input" class="controls" type="text" placeholder="Search Box">-->
+
+                <div id='map' class="container-fluid"></div>
+
+            </div>
+
+
+
+
+
+
+            <!--load jquery first, else console mention $ not define-->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+            <!--run own js file-->
+            <script type="text/javascript" src="assets/js/script.js"></script>
+
+            <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw"></script>-->
+
+            <!--GOOGLE MAP API STEP 1 - add google map API-->
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places&callback=initMap" async defer></script>
+            <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places&callback=initAutocomplete" async defer></script>-->
+
+
+</body>
+
+</html>

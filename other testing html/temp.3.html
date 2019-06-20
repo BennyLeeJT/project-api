@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="CSS/project-api.3.css" />
+
+
+
+    <!--load the map with own API key-->
+    <!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places"></script>-->
+
+
+    <title>Belly Rumbling?</title>
+</head>
+
+<body>
+    <div class="container-fluid top-div">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+      <a class="navbar-brand" href="temp.3.html">
+        <img id="logo" src="CSS/images/BELLY-RUMBLE3b.png" alt="Belly Rumble">
+      </a>
+      
+    </nav>
+
+    <!--from <div class="container-fluid">-->
+    </div>
+  
+  
+  
+  
+    <!--CURRENT SEARCH INPUT BOX HERE-->
+  <div class="container-fluid search-box">
+    General Search
+
+    <form class="form-inline my-2 my-lg-0" action="#" onsubmit="showAddress(this.address.value); return false">
+      <!--<div class="row">-->
+      <!--  <div class="col-md-6">-->
+          <label for="address"></label>
+          <input id="address" class="form-control mr-sm-2 col-sm" type="text" placeholder="Search for food, place, company..." />
+          <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          <p id="error-msg"></p>
+          
+        <!--</div>-->
+        <!--<div class="col-md-6 the-map">-->
+        <!--  <iframe id="maps" src="" allowfullscreen></iframe>-->
+        <!--</div>-->
+
+      <!--</div>-->
+    </form>
+    
+    <p></p>
+    
+    
+    
+  
+    <div id="buttons">
+
+        <input type="checkbox" name="filter" id="shower" class='chk-btn'>
+        <label for='shower'>Shower</label>
+
+        <input type="checkbox" name="filter" id="flush" class='chk-btn'>
+        <label for='flush'>Flush Toilet</label>
+
+        <input type="checkbox" name="filter" id="vault" class='chk-btn'>
+        <label for='vault'>Vault Toilet</label>
+        <br>
+    </div>
+    
+    
+<div class="pac-card" id="pac-card">
+      <div>
+        <div id="title">
+          Autocomplete search
+        </div>
+        <div id="type-selector" class="pac-controls">
+          <input type="radio" name="type" id="changetype-all" checked="checked">
+          <label for="changetype-all">All</label>
+
+          <input type="radio" name="type" id="changetype-establishment">
+          <label for="changetype-establishment">Establishments</label>
+
+          <input type="radio" name="type" id="changetype-address">
+          <label for="changetype-address">Addresses</label>
+
+          <input type="radio" name="type" id="changetype-geocode">
+          <label for="changetype-geocode">Geocodes</label>
+        </div>
+        <div id="strict-bounds-selector" class="pac-controls">
+          <input type="checkbox" id="use-strict-bounds" value="">
+          <label for="use-strict-bounds">Strict Bounds</label>
+        </div>
+      </div>
+      <div id="pac-container">
+        <input id="pac-input" type="text"
+            placeholder="Enter a location">
+      </div>
+    </div>
+    
+    
+    
+    <div id="map"></div>
+    
+    
+    
+    <div id="infowindow-content">
+      <img src="" width="16" height="16" id="place-icon">
+      <span id="place-name"  class="title"></span><br>
+      <span id="place-address"></span>
+    </div>
+    
+    <!--<div id="map" class="container-fluid">-->
+
+    <!--<iframe id="inner_map" src="" class="container-fluid"></iframe>-->
+
+    <!--</div>-->
+    
+    <!--<iframe id="map" class="container-fluid">-->
+
+    <!--</iframe>-->
+    
+    
+    <!--load jquery first, else console mention $ not define-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+  
+    <!--run own js file-->
+    <script type="text/javascript" src="project-api.3.js"></script>
+
+    <!--GOOGLE MAP API STEP 1 - add google map API-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvZ3qFO3yfx7B69UDRAQN2uPYzekDYZmw&libraries=places&callback=initMap"
+        async defer></script>
+  
+
+
+
+
+</body>
+
+</html>
