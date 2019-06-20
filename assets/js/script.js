@@ -71,7 +71,7 @@ function initMap() {
 
     $('#button6').click(function(load) {
         document.getElementById('display_filter_selection_id').innerHTML = "You have selected : Shopping Malls",
-            request2c = {
+            request = {
                 location: singapore,
                 radius: 5000,
                 types: ['shopping_mall']
@@ -79,7 +79,7 @@ function initMap() {
         clearResults(markers);
 
         currentSelectedMode = 'mall';
-        service.nearbySearch(request2c, callback);
+        service.nearbySearch(request, callback);
 
     });
 
@@ -158,13 +158,13 @@ function initMap() {
 
 
         if (currentSelectedMode == 'mall') {
-            let request2c = {
+            let request = {
                 location: event.latLng,
                 radius: 5000,
                 types: ['mall'],
                 fields: ['basic', 'contact', 'atmosphere']
             };
-            service.nearbySearch(request2c, callback);
+            service.nearbySearch(request, callback);
         }
 
         if (currentSelectedMode == 'cafe') {
@@ -290,7 +290,7 @@ function initMap() {
 
     }
     
-// can't use two call backs, the latter one will overwrite the former function
+// can't use two call backs, the latter one will overwrite the former function. separately initAutocomplete can work on its own here.
 // initAutocomplete() 
 
 

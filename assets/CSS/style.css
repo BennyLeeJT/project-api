@@ -73,7 +73,11 @@ body {
   color: white;
   font-weight: bold;
 }
-/*cant use 2 callbacks*/
+
+
+
+
+/*cant use 2 callbacks. separately initAutocomplete can work on its own here.*/
 /*.pac-card {*/
 /*  margin: 10px 10px 0 0;*/
 /*  border-radius: 2px 0 0 2px;*/
