@@ -147,3 +147,15 @@
 </body>
 
 </html>
+
+
+
+
+The mainland of Singapore measures 50 kilometres (31 mi) from east to west and 27 kilometres (17 mi) from north to south 
+
+
+
+https://maps.googleapis.com/maps/api/place/findplacefromtext/output?parameters
+
+singapore is lat 1.3521, lng: 103.8198
+
